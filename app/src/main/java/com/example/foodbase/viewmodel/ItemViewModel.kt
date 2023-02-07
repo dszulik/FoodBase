@@ -1,0 +1,53 @@
+package com.example.foodbase.viewmodel
+
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
+import com.example.foodbase.model.Item
+import com.example.foodbase.data.ItemDatabase
+import com.example.foodbase.repository.ItemRepository
+
+class ItemViewModel(application: Application) : AndroidViewModel(application) {
+    val readAllData: LiveData<List<Item>>
+    private val repository: ItemRepository
+
+    init {
+        val itemDao = ItemDatabase.getDatabase(application).itemDao()
+        repository = ItemRepository(itemDao)
+        readAllData = repository.readAllData
+    }
+
+    fun addItem(item: Item){
+        viewModelScope.launch {
+            repository.addItem(item)
+        }
+    }
+
+    fun getItem(id: Int): LiveData<Item>{
+        return repository.getItem(id)
+    }
+
+    fun updateItem(item: Item){
+        viewModelScope.launch {
+            repository.updateItem(item)
+        }
+    }
+
+    fun deleteItem(item: Item){
+        viewModelScope.launch {
+            repository.deleteItem(item)
+        }
+    }
+
+    fun deleteAll(){
+        viewModelScope.launch {
+            repository.deleteAllItems()
+        }
+    }
+
+    fun searchItem(query: String): LiveData<List<Item>>{
+        return repository.searchItem(query)
+    }
+}
