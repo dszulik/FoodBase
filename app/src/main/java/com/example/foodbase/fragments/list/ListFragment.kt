@@ -6,10 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodbase.databinding.FragmentListBinding
@@ -38,24 +36,5 @@ class ListFragment : Fragment() {
 
         itemViewModel.readAllData.observe(viewLifecycleOwner, adapter::submitList)
 
-    }
-
-    private fun swipeToDelete(adapter: ItemAdapter) {
-        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(
-            0,
-            ItemTouchHelper.RIGHT or ItemTouchHelper.LEFT
-        ) {
-            override fun onMove(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder
-            ): Boolean {
-                return false
-            }
-
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                itemViewModel.deleteItem(adapter.getItemAt(viewHolder.adapterPosition))
-            }
-        }).attachToRecyclerView(binding.listRecyclerView)
     }
 }

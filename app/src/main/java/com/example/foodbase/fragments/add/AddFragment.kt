@@ -40,7 +40,7 @@ class AddFragment : Fragment() {
         if (name.isNotEmpty() && quantity.isNotEmpty()){
             val item = Item(0, name, quantity.toInt())
             itemViewModel.addItem(item)
-//            findNavController().navigate(AddFragmentDirections.actionAddFragmentToListFragment())
+            findNavController().navigate(AddFragmentDirections.actionAddFragmentToListFragment())
         } else{
             binding.nameEditText.error = "Podaj nazwę"
             binding.quantityEditText.error = "Podaj ilość"
