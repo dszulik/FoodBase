@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/naviagtion"
+    app:startDestination="@id/listFragment">
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.example.foodbase.fragments.list.ListFragment"
+        android:label="FoodBase"
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_ListFragment_to_UpdateFragment"
+            app:destination="@id/updateFragment" >
+            <argument
+                android:name="itemId"
+                app:argType="integer" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.example.foodbase.fragments.add.AddFragment"
+        android:label="FoodBase"
+        tools:layout="@layout/fragment_add" >
+        <action
+            android:id="@+id/action_AddFragment_to_ListFragment"
+            app:destination="@id/listFragment" >
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.example.foodbase.fragments.update.UpdateFragment"
+        android:label="FoodBase"
+        tools:layout="@layout/dialog_update" >
+        <action
+            android:id="@+id/action_UpdateFragment_to_ListFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+</navigation>
