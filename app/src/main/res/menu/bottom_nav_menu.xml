@@ -3,10 +3,10 @@
 
     <item
         android:id="@id/listFragment"
-        android:icon="@drawable/countries"
+        android:icon="@drawable/placeholder_image"
         android:title="List" />
     <item
         android:id="@+id/addFragment"
-        android:icon="@drawable/countries"
+        android:icon="@drawable/placeholder_image"
         android:title="Add" />
 </menu>

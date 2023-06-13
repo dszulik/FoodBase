@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">FoodBase</string>
+    <string name="rationale_camera">Aplikacja potrzebuje uprawnień do kamery, aby zrobić zdjęcie.</string>
 </resources>

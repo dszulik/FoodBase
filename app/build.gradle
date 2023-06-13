@@ -4,6 +4,7 @@ plugins {
     id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -71,5 +72,8 @@ dependencies {
     // Navigation
     implementation "androidx.navigation:navigation-fragment:2.5.1"
     implementation "androidx.navigation:navigation-ui:2.5.1"
+
+//    implementation "androidx.room:room-runtime:2.3.0"
+//    kapt "androidx.room:room-compiler:2.3.0"
 }
 
